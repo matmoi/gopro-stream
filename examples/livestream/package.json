@@ -1,0 +1,20 @@
+{
+  "name": "livestream",
+  "version": "1.0.0",
+  "description": "gopro-stream example",
+  "main": "livestream.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "ws": "^1.1.0",
+    "log-timestamp": "^0.1.2"
+  },
+  "keywords": [
+    "gopro",
+    "streaming",
+    "mp4"
+  ],
+  "author": "Matthieu Moinard <matthieu.moinard@live.com> (https://github.com/matmoi)"
+}

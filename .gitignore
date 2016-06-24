@@ -1,0 +1,7 @@
+*.njsproj
+*.sln
+.vs/
+**/node_modules
+*.mp4
+**/obj
+**/bin

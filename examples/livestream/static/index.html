@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GoPro live stream</title>
+</head>
+<body>
+    <div id="info"></div>
+<video id="gopro" controls="true" preload="auto" autoplay="true" style="width:100%">Your browser does not support the video tag.</video>
+
+<script>
+var mimeCodec = 'video/mp4; codecs="avc1.4d4015, mp4a.40.2"';//'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
+var video = document.getElementById('gopro');
+var buffer;
+var queue = [];
+
+video.addEventListener("error", function (e) {
+  console.log("video error: ", video.error," ", e.toString());
+}, true);
+
+var websocket = new WebSocket( 'ws://127.0.0.1:8084/' );
+websocket.binaryType = 'arraybuffer';
+
+if ('MediaSource' in window && MediaSource.isTypeSupported(mimeCodec)) {
+    var mediaSource = new MediaSource();
+
+    mediaSource.addEventListener('sourceended', function(e) { console.log('mediaSource sourceended: ' + mediaSource.readyState); });
+    mediaSource.addEventListener('sourceclose', function(e) { console.log('mediaSource sourceclose: ' + mediaSource.readyState); });
+    mediaSource.addEventListener('error', function(e) { console.log('mediaSource error: ' + mediaSource.readyState); });
+
+    video.src = window.URL.createObjectURL(mediaSource);
+    mediaSource.addEventListener('sourceopen', function(e) {
+        buffer = mediaSource.addSourceBuffer(mimeCodec);
+        buffer.addEventListener('updateend', function(e) {
+            if (video.readyState === video.HAVE_METADATA) {
+                video.currentTime = buffer.buffered.start(0); // first chunk, seek to the beginning of the first segment
+            }
+            if (queue.length > 0 && !buffer.updating) {
+                buffer.appendBuffer(queue.shift());
+            }
+        });
+        buffer.addEventListener('error', function(e) { console.log('buffer error: ' + mediaSource.readyState, e); });
+        buffer.addEventListener('abort', function(e) { console.log('buffer abort: ' + mediaSource.readyState); });
+        console.log('mediaSource sourceopen: ' + mediaSource.readyState);
+
+        websocket.addEventListener('message', function(e) {
+            if (typeof e.data !== 'string') {
+                if (buffer.updating || queue.length > 0) {
+                    queue.push(e.data);
+                } else {
+                    buffer.appendBuffer(e.data);
+                }
+            }
+        }, false);
+
+    });
+
+} else {
+  console.error('Unsupported MIME type or codec: ', mimeCodec);
+}
+
+</script>
+</body>
+</html>

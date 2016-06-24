@@ -1,13 +1,17 @@
 {
   "name": "gopro-stream",
   "version": "1.0.0",
-  "description": "Mux gopro stream to MP4 fragments",
+  "description": "Mux gopro stream into MP4 fragments",
   "directories": {
     "lib": "./lib"
   },
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "goproh4": "^0.4.0",
+    "mux.js": "^2.3.0"
   },
   "repository": {
     "type": "git",
@@ -18,11 +22,13 @@
     "streaming",
     "mp4"
   ],
-  "author": "Matthieu Moinard",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.13.4",
-    "ws": "^1.1.0",
-    "log-timestamp": "^0.1.2"
-  }
+  "author": "Matthieu Moinard <matthieu.moinard@live.com> (https://github.com/matmoi)",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/matmoi/gopro-stream/blob/master/LICENSE"
+  },
+  "bugs": {
+    "url": "https://github.com/matmoi/gopro-stream/issues"
+  },
+  "homepage": "https://github.com/matmoi/gopro-stream"
 }
