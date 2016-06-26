@@ -20,18 +20,12 @@ class GoproMock extends GoproStream {
             let currentPosition = 0;
             self.readingThread = setInterval(() => {
                 let chunk = fileArray.slice(currentPosition, currentPosition + PACKET_SIZE_IN_BYTES);
-                //fs.writeFile(__dirname + '/video_chunk_' + currentPosition + '.ts', chunk, function (err) {
-                //    if (err) {
-                //        return console.log(err);
-                //    }
-                //}); 
-                console.log(`Read from position ${currentPosition}`);
                 self._processTsPacket(chunk);
                 currentPosition += PACKET_SIZE_IN_BYTES;
                 if (currentPosition > fileArray.buffer.byteLength - PACKET_SIZE_IN_BYTES) {
                     currentPosition = 0;
                 }
-            }, 500);
+            }, 10);
         });
     }
 
