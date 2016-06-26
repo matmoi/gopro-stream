@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Mux gopro stream into MP4 fragments",
   "directories": {
-    "lib": "./lib"
+    "lib": "./lib",
+    "test": "./test"
   },
   "main": "./lib/index.js",
   "scripts": {
@@ -23,10 +24,7 @@
     "mp4"
   ],
   "author": "Matthieu Moinard <matthieu.moinard@live.com> (https://github.com/matmoi)",
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/matmoi/gopro-stream/blob/master/LICENSE"
-  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/matmoi/gopro-stream/issues"
   },

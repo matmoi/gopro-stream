@@ -1,16 +1,19 @@
 ﻿require('log-timestamp');
-var GoproStream = require('../../lib/index.js');
-var express = require('express');
-var fs = require('fs');
+const express = require('express');
+const DEV_MODE = (process.env.NODE_ENV === 'development');
+const HTTP_PORT = 8089;
+const WEBSOCKET_PORT = 8084;
 
-var HTTP_PORT = 8089;
-var WEBSOCKET_PORT = 8084;
-
-console.log("Start");
+if (DEV_MODE) {
+    var goproStream = new (require('../../test/mock.js'))();
+} else {
+    var goproStream = new (require('../../lib/index.js'))();
+}
 
 var app = express();
-var goproStream = new GoproStream();
 var socketServer = new (require('ws').Server)({ port: WEBSOCKET_PORT });
+
+console.log("Start");
 
 
 app.use('/index', express.static(__dirname + '/static'));
@@ -34,3 +37,9 @@ socketServer.on('connection', function (socket) {
 });
 
 goproStream.startStream();
+
+process.on('SIGINT', () => {
+    console.log("exit");
+    goproStream.stopStream();
+    process.exit();
+});
