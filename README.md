@@ -14,7 +14,7 @@ Our solution as shown above consists of three distinct components :
 ## gateway
 
 > Requirements
->> gateway must be able to connect to two endpoints simultaneously. One is required to connect to GoPro camera through wifi, the other is needed to forward the stream to the server. It could be a cellular connection for mobile phones for instance, or a wired connection for computers.
+>> gateway must be able to connect to two endpoints simultaneously. One is required to connect to GoPro camera through wifi, the other is needed to forward stream to the server. It could be a cellular connection for mobile phones for instance, or a wired connection for computers.
 
 - connected to GoPro via wifi
 - use [goproh4](https://github.com/citolen/goproh4) npm package to control camera (notably start preview command)
