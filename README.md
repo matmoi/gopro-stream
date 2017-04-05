@@ -14,12 +14,13 @@ Our solution as shown above consists of three distinct components :
 ## gateway
 
 > Requirements
+
 > gateway must be able to connect to two endpoints simultaneously. One is required to connect to GoPro camera through wifi, the other is needed to forward the stream to the server. It could be a cellular connection for mobile phones for instance, or a wired connection for computers.
 
-- connected to the GoPro via wifi
-- use [goproh4](https://github.com/citolen/goproh4) npm package to control the GoPro (notably start preview command)
-- receive the stream from the GoPro on an udp link using [dgram](https://nodejs.org/api/dgram.html)
-- transmux the stream using [mux.js](https://github.com/videojs/mux.js) npm package
+- connected to GoPro via wifi
+- use [goproh4](https://github.com/citolen/goproh4) npm package to control camera (notably start preview command)
+- receive stream from GoPro on an incoming udp link using [dgram](https://nodejs.org/api/dgram.html)
+- transmux stream using [mux.js](https://github.com/videojs/mux.js) npm package
 
 ## server
 
