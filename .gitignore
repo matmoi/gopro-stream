@@ -1,6 +1,7 @@
 *.njsproj
 *.sln
 .vs/
+.vscode/
 **/node_modules
 *.mp4
 **/obj
