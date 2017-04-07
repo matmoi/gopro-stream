@@ -7,12 +7,9 @@
     "test": "./test"
   },
   "main": "./lib/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "dependencies": {
-    "goproh4": "^0.4.0",
-    "mux.js": "^2.3.0"
+    "goproh4": "^0.4.2",
+    "mux.js": "^4.0.0"
   },
   "repository": {
     "type": "git",

@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "gopro-stream example",
   "main": "livestream.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production node ./livestream.js"
-  },
   "dependencies": {
     "express": "^4.13.4",
     "ws": "^1.1.0",

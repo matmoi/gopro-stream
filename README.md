@@ -1,6 +1,12 @@
 # gopro-stream
 
-gopro-stream allows you to live stream your GoPro Hero
+gopro-stream provides a library to capture a stream from a GoPro Hero's camera. 
+
+## Example 1 - dump stream to file
+Check `./examples/gopro2file.js`. The program simply use goprostream to retrieve fMP4 segments and dump them in a `.mp4` file.
+
+## Example 2 - livestream
+gopro-stream allows you to live stream your GoPro Hero.
 
 ![Alt text](doc/architecture.png?raw=true "Overview")
 
