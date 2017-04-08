@@ -10,14 +10,23 @@
             "name": "gopro2file",
             "program": "${workspaceRoot}/examples/gopro2file.js",
             "env": {
-                "NODE_ENV" : "development"
+                "NODE_ENV" : "production"
             }
         },
         {
             "type": "node",
             "request": "launch",
-            "name": "livestream",
-            "program": "${workspaceRoot}/examples/livestream/livestream.js",
+            "name": "livestream-server",
+            "program": "${workspaceRoot}/examples/livestream/server.js",
+            "env": {
+                "NODE_ENV" : "production"
+            }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "livestream-gateway",
+            "program": "${workspaceRoot}/examples/livestream/gateway.js",
             "env": {
                 "NODE_ENV" : "production"
             }

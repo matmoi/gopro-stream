@@ -5,8 +5,11 @@
   "main": "livestream.js",
   "dependencies": {
     "express": "^4.13.4",
-    "ws": "^1.1.0",
+    "express-ws": "^3.0.0",
     "log-timestamp": "^0.1.2"
+  },
+  "scripts": {
+    "start": "node server.js & node gateway.js"
   },
   "keywords": [
     "gopro",

@@ -1,6 +1,6 @@
 {
   "name": "gopro-stream",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mux gopro stream into MP4 fragments",
   "directories": {
     "lib": "./lib",

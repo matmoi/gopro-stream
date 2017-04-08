@@ -17,7 +17,7 @@ video.addEventListener("error", function (e) {
   console.log("video error: ", video.error," ", e.toString());
 }, true);
 
-var websocket = new WebSocket( 'ws://127.0.0.1:8084/' );
+var websocket = new WebSocket( 'ws://127.0.0.1:8080/' );
 websocket.binaryType = 'arraybuffer';
 
 if ('MediaSource' in window && MediaSource.isTypeSupported(mimeCodec)) {
