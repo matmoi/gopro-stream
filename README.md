@@ -1,6 +1,6 @@
 # gopro-stream
 
-gopro-stream provides a library to capture and convert a media stream from a GoPro Hero's camera preview
+gopro-stream provides a library to capture and convert a media stream from GoPro Hero's camera preview
 
 ## Example 1 - dump stream to file
 Check `./examples/gopro2file.js`. The program simply use goprostream to retrieve fMP4 segments and dump them in a `.mp4` file.
