@@ -23,7 +23,7 @@ To run the app in a local environment, use :
 npm start
 ```
 
-It would run both server and gateway from the same machine (which must be connected to the camera beforehand). Then, open your favorite web browser at the addess (http://127.0.0.1:8080)[http://127.0.0.1:8080]. Ideally, gateway and server would run on distinct machines as shown in the diagram.
+It runs both server and gateway from the same machine (which must be connected to the GoPro beforehand). Then, open a web browser at the addess (http://127.0.0.1:8080)[http://127.0.0.1:8080]. Ideally, gateway and server would run on distinct machines as shown in the diagram.
 
 ### gateway
 
