@@ -17,7 +17,15 @@ Our solution as shown above consists of three distinct components :
 - __server__ is used as a broadcaster, it receives stream from the gateway and transmit it to all connected clients via websockets.
 - __clients__ are endpoints connected to the server via http requests. As such, received fragmented MP4 segments are rendered in a web browser using [MSE](http://www.w3.org/TR/media-source/) (no plugin required).
 
-## gateway
+To run the app in a local environment, use :
+
+```
+npm start
+```
+
+It would run both server and gateway from the same machine (which must be connected to the camera beforehand). Then, open your favorite web browser at the addess (http://127.0.0.1:8080)[http://127.0.0.1:8080]. Ideally, gateway and server would run on distinct machines as shown in the diagram.
+
+### gateway
 
 > Requirements
 >> gateway must have two connection interfaces. One is required to connect to GoPro camera through wifi, the other is needed to forward stream to the server. It could be a cellular connection for mobile phones for instance, or a wired connection for computers.
@@ -27,10 +35,10 @@ Our solution as shown above consists of three distinct components :
 - receive stream from GoPro on an incoming udp link using [dgram](https://nodejs.org/api/dgram.html)
 - transmux stream using [mux.js](https://github.com/videojs/mux.js) npm package
 
-## server
+### server
 
 Simply an express http server delivering a simple http web page to display the fragmented MP4 packets as they arrive. Also a websocket server broadcasting incoming packets from the gatewy towards clients.
 
-## clients
+### clients
 
 Initiate a connection to the websocket server, get fMP4 chunks and append them to MediaSource buffer.
