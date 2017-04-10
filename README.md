@@ -23,7 +23,7 @@ To run the app in a local environment, use :
 npm start
 ```
 
-It runs both server and gateway from the same machine (which must be connected to the GoPro beforehand). Then, open a web browser at the addess (http://127.0.0.1:8080)[http://127.0.0.1:8080]. Ideally, gateway and server would run on distinct machines as shown in the diagram.
+It runs both server and gateway from the same machine (which must be connected to the GoPro beforehand). Then, open a web browser at the addess [http://127.0.0.1:8080](http://127.0.0.1:8080). Ideally, gateway and server would run on distinct machines as shown in the diagram.
 
 ### gateway
 
@@ -31,7 +31,7 @@ It runs both server and gateway from the same machine (which must be connected t
 >> gateway must have two connection interfaces. One is required to connect to GoPro camera through wifi, the other is needed to forward stream to the server. It could be a cellular connection for mobile phones for instance, or a wired connection for computers.
 
 - connected to GoPro via wifi
-- use [goproh4](https://github.com/citolen/goproh4) npm package to control camera (notably start preview command)
+- rely on [goproh4](https://github.com/citolen/goproh4) npm package to control camera (notably start preview command)
 - receive stream from GoPro on an incoming udp link using [dgram](https://nodejs.org/api/dgram.html)
 - transmux stream using [mux.js](https://github.com/videojs/mux.js) npm package
 
